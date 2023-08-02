@@ -1,0 +1,12 @@
+2. Richest Customer Wealth
+int maximumWealth(int** accounts, int accountsSize, int* accountsColSize){
+         int maximum=0;
+    for(int i=0;i<accountsSize;i++){
+        int temp=0;
+        for(int j=0;j<accountsColSize[i];j++){
+            temp += accounts[i][j];
+        }if(temp>maximum)
+        maximum = temp;
+    }
+    return maximum;
+}

@@ -1,0 +1,37 @@
+1.Spiral Matrix II
+int** generateMatrix(int n, int* returnSize, int** returnColumnSizes)
+{
+    *returnSize = n;
+    *returnColumnSizes = malloc(sizeof(int) * n);
+    int **res = malloc(sizeof(int*) * n);
+    for (int i = 0; i < n; i++) {
+        (*returnColumnSizes)[i] = n;
+        res[i] = malloc(sizeof(int) * n);
+    }
+    
+    int t = 0;
+    int b = n - 1;
+    int l = 0;
+    int r = n - 1;
+    
+    int j = 1;
+    while (j <= n * n) {
+        for (int i = l; i <= r; i++, j++)
+            res[t][i] = j;
+        t++;
+
+        for (int i = t; i <= b; i++, j++)
+            res[i][r] = j;
+        r--;
+
+        for (int i = r; i >= l; i--, j++)
+            res[b][i] = j;
+        b--;
+
+        for (int i = b; i >= t; i--, j++)
+            res[i][l] = j;
+        l++;
+    }
+
+    return res;
+}

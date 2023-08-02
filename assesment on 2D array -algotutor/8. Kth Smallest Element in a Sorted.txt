@@ -1,0 +1,17 @@
+8. Kth Smallest Element in a Sorted Matrix
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        int ma=matrix.length;
+        int ha=ma*ma;
+        int [] a = new int[ma*ma];
+        int l=0;
+        for(int i=0;i<ma;i++){
+            for(int j=0;j<ma;j++){
+                a[l]=matrix[i][j];
+                l++;
+            }
+        }
+        Arrays.sort(a);
+        return a[k-1];
+    }
+}
